@@ -4,18 +4,16 @@ import React from 'react';
 import Button from './Button';
 
 export default {
-	title: 'ui/buttons/Button',
 	component: Button,
-
-	argTypes: {
-		backgroundColor: { control: 'color' }
-	}
+	title: 'ui/buttons/Button'
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
+export const Primary = ButtonTemplate.bind({});
 
 Primary.args = {
-	label: 'Button'
+	label: 'Button',
+	size: 'medium',
+	variant: 'contained'
 };

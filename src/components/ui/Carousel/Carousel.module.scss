@@ -1,0 +1,17 @@
+.carousel {
+    .carousel-container {
+        @apply m-auto max-w-[1200px] overflow-hidden p-6;
+
+        .media-cards-container {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .label-container {
+            @apply flex gap-4 justify-between py-5;
+            .handlers {
+                @apply flex gap-2;
+            }
+        }
+    }
+}

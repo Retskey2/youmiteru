@@ -18,10 +18,13 @@
     "paths": {
       "@/*": ["./*"],
       "@/helpers*": ["./utils/helpers"],
+      "@/ui*": ["./components/ui"],
+      "@/layout*": ["./components/layout"],
+      "@/screen*": ["./components/screen"],
       "@/constants*": ["./utils/constants"],
       "@/utils/api*": ["./utils/api"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }

@@ -1,3 +1,4 @@
+import { cva } from 'class-variance-authority';
 import React, { FC } from 'react';
 
 import styles from './Button.module.scss';
@@ -13,11 +14,11 @@ export interface ButtonProps {
 	/**
 	 * start icon
 	 */
-	startIcon: React.ReactNode;
+	startIcon?: React.ReactNode;
 	/**
 	 * end Icon
 	 */
-	endIcon: React.ReactNode;
+	endIcon?: React.ReactNode;
 	/**
 	 * loading
 	 */
@@ -31,31 +32,34 @@ export interface ButtonProps {
 	 */
 	size?: ButtonSize;
 	/**
-	 * background color
-	 */
-	backgroundColor?: string;
-	/**
 	 * click event
 	 */
 	onClick?: () => void;
 }
 
+const classNames = cva(styles.button, {
+	variants: {
+		size: {
+			medium: 'min-h-[60px] py-[18px] px-[24px]',
+			small: 'py-[6px] px-[20px]'
+		},
+		variant: {
+			contained: 'border-primary bg-primary text-white hover:border-grey hover:bg-grey',
+			outlined: 'border-secondary hover:border-primary'
+		}
+	}
+});
+
 const Button: FC<ButtonProps> = ({
 	label,
-	loading,
+	loading = false,
 	size = 'medium',
-	backgroundColor,
 	variant = 'contained',
 	onClick,
 	...props
 }) => (
-	<button
-		type='button'
-		className={styles.button}
-		onClick={onClick}
-		style={{ backgroundColor }}
-		{...props}
-	>
+	<button className={classNames({ size, variant })} type='button' onClick={onClick} {...props}>
+		{loading && <div />}
 		{label}
 	</button>
 );

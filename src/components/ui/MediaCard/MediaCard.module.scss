@@ -1,0 +1,14 @@
+.image-card-container {
+    .glass {
+        @apply flex absolute w-full h-full max-w-[200px] flex-col justify-center items-center text-white opacity-0 text-center;
+        top: 0;
+        left: 0;
+
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+            @apply opacity-100;
+        }
+    }
+}
